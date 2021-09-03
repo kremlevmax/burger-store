@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import ingredientsSlice from "./ingredients/ingredients";
 
-const store = configureStore({ ingredients: ingredientsSlice.reducer });
-
-export const ingredientsActions = ingredientsSlice.actions;
+const store = configureStore({
+  reducer: { ingredients: ingredientsSlice.reducer },
+});
 
 export default store;
