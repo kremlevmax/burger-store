@@ -10,6 +10,9 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
 
+      state.totalPrice += newItem.price;
+      state.totalCalories += newItem.calories;
+
       if (!existingItem) {
         state.items.push({
           id: newItem.id,
@@ -22,6 +25,19 @@ const cartSlice = createSlice({
         });
       } else {
         existingItem.quantity++;
+      }
+    },
+    deleteFromCart(state, action) {
+      const itemToDelete = state.items.find(
+        (item) => item.id === action.payload.id
+      );
+      state.totalCalories -= itemToDelete.calories;
+      state.totalPrice -= itemToDelete.price;
+
+      if (itemToDelete.quantity === 1) {
+        state.items.filter((item) => item.id === itemToDelete.id);
+      } else {
+        itemToDelete.quantity--;
       }
     },
   },

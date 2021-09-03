@@ -9,7 +9,17 @@ const IngredientsList = () => {
   return (
     <ul>
       {ingredientsList.map((item) => (
-        <IngredientItem name={item.name} />
+        <IngredientItem
+          key={item.id}
+          item={{
+            id: item.id,
+            calories: item.calories,
+            description: item.description,
+            image: item.image,
+            name: item.name,
+            price: item.price,
+          }}
+        />
       ))}
     </ul>
   );
