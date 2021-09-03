@@ -5,7 +5,12 @@ const initialIngredientsState = { ingredientsList: [] };
 const ingredientsSlice = createSlice({
   name: "ingredients",
   initialState: initialIngredientsState,
-  reducers: {},
+  reducers: {
+    fullfillIngredientList(state, action) {
+      state.ingredientsList = action.payload;
+      console.log(state.ingredientsList);
+    },
+  },
 });
 
 export const fetchIngredientsList = () => {
@@ -20,20 +25,21 @@ export const fetchIngredientsList = () => {
       }
 
       const data = await response.json();
-      console.log(await data);
-
       return data;
     };
 
     try {
       const ingredientsListData = await fetchData();
+      dispatch(
+        ingredientsListActions.fullfillIngredientList(ingredientsListData)
+      );
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-export const ingredientsActions = ingredientsSlice.actions;
+export const ingredientsListActions = ingredientsSlice.actions;
 
 export default ingredientsSlice;
 
