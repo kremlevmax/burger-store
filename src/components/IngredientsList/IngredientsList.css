@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.ingredients-list {
+  display: inline;
+  list-style: none;
+}
