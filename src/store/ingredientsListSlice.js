@@ -8,7 +8,6 @@ const ingredientsSlice = createSlice({
   reducers: {
     fullfillIngredientList(state, action) {
       state.ingredientsList = action.payload;
-      console.log(state.ingredientsList);
     },
   },
 });

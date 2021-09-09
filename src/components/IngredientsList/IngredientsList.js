@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import "./IngredientsList.css";
+import styles from "./IngredientsList.module.css";
 import IngredientItem from "../IngredientItem/IngredientItem";
 
 const IngredientsList = () => {
@@ -8,7 +8,7 @@ const IngredientsList = () => {
     (state) => state.ingredients.ingredientsList
   );
   return (
-    <ul className='ingredients-list'>
+    <ul className={styles.ingredientsList}>
       {ingredientsList.map((item) => (
         <IngredientItem
           key={item.id}

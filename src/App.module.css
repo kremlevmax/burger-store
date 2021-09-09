@@ -1,0 +1,22 @@
+.mainArea {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredientsList {
+  flex-basis: 75%;
+  max-width: 1200px;
+  justify-content: space-around;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.cart {
+  flex-basis: 25%;
+  margin-top: 10px;
+}
+
+.header {
+  height: 60px;
+  background-color: #fafafa;
+}

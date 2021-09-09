@@ -1,0 +1,8 @@
+.cart {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-between;
+  border: 3px solid #fafafa;
+  border-radius: 3%;
+}
