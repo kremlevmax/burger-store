@@ -1,8 +1,17 @@
 import styles from "./IngredientItem.module.css";
+import { cartActions } from "../../store/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const IngredientItem = (props) => {
+  const dispatch = useDispatch();
+
+  const onClickHandler = () => {
+    dispatch(cartActions.addItemToCart(props.item));
+  };
+
+  const cartList = useSelector((state) => state.cart.items);
   return (
-    <li className={styles.ingredientItem}>
+    <li className={styles.ingredientItem} onClick={onClickHandler}>
       <div
         className={styles.ingredientItemImage}
         style={{ backgroundImage: `url(${props.item.image})` }}

@@ -7,6 +7,7 @@ const IngredientsList = () => {
   const ingredientsList = useSelector(
     (state) => state.ingredients.ingredientsList
   );
+
   return (
     <ul className={styles.ingredientsList}>
       {ingredientsList.map((item) => (
