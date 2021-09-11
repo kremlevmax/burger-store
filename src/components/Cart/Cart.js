@@ -4,7 +4,7 @@ import styles from "./Cart.module.css";
 
 const Cart = () => {
   const data = useSelector((state) => state.cart);
-  console.log(data.items);
+  console.log(data);
   return (
     <div className={styles.cart}>
       {data.items.map((item) => (
@@ -21,6 +21,10 @@ const Cart = () => {
           }}
         />
       ))}
+      <div className={styles.totalPrice}>
+        Total: ${data.totalPrice.toFixed(2)}
+      </div>
+      <div className={styles.totalCalories}>Calories: {data.totalCalories}</div>
     </div>
   );
 };
