@@ -4,7 +4,10 @@ import styles from "./Cart.module.css";
 
 const Cart = () => {
   const data = useSelector((state) => state.cart);
-  console.log(data);
+  if (localStorage.getItem("cart")) {
+    console.log(JSON.parse(localStorage.getItem("cart")));
+  }
+
   return (
     <div className={styles.cart}>
       {data.items.map((item) => (

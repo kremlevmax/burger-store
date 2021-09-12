@@ -26,6 +26,7 @@ const cartSlice = createSlice({
       } else {
         existingItem.quantity++;
       }
+      localStorage.setItem("cart", JSON.stringify(state));
     },
     deleteFromCart(state, action) {
       const itemToDelete = state.items.find(
@@ -39,6 +40,7 @@ const cartSlice = createSlice({
       } else {
         itemToDelete.quantity--;
       }
+      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });
