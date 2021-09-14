@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import styles from "./Cart.module.css";
 
 const Cart = () => {
-  const data = useSelector((state) => state.cart);
+  let data = useSelector((state) => state.cart);
   if (localStorage.getItem("cart")) {
-    console.log(JSON.parse(localStorage.getItem("cart")));
+    data = JSON.parse(localStorage.getItem("cart"));
   }
 
   return (
