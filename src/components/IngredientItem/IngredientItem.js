@@ -1,5 +1,5 @@
 import styles from "./IngredientItem.module.css";
-import { cartActions } from "../../store/cartSlice";
+import { cartActions } from "../../store/CartStore/actions/cartActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const IngredientItem = (props) => {

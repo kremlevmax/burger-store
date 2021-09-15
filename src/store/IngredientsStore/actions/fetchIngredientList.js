@@ -1,16 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-const initialIngredientsState = { ingredientsList: [] };
-
-const ingredientsSlice = createSlice({
-  name: "ingredients",
-  initialState: initialIngredientsState,
-  reducers: {
-    fullfillIngredientList(state, action) {
-      state.ingredientsList = action.payload;
-    },
-  },
-});
+import { ingredientsListActions } from "./IngrefientsListActions";
 
 export const fetchIngredientsList = () => {
   return async (dispatch) => {
@@ -37,14 +25,3 @@ export const fetchIngredientsList = () => {
     }
   };
 };
-
-export const ingredientsListActions = ingredientsSlice.actions;
-
-export default ingredientsSlice;
-
-///
-
-/* название,цена, картинка, описание, количество ккал 
- создать json file с данными
-
- */
