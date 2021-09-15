@@ -1,6 +1,6 @@
 import styles from "./IngredientItem.module.css";
 import { cartActions } from "../../store/CartStore/actions/cartActions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const IngredientItem = (props) => {
   const dispatch = useDispatch();
@@ -9,7 +9,6 @@ const IngredientItem = (props) => {
     dispatch(cartActions.addItemToCart(props.item));
   };
 
-  const cartList = useSelector((state) => state.cart.items);
   return (
     <li className={styles.ingredientItem} onClick={onClickHandler}>
       <div

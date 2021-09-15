@@ -2,11 +2,10 @@ import { useSelector } from "react-redux";
 
 import styles from "./IngredientsList.module.css";
 import IngredientItem from "../IngredientItem/IngredientItem";
+import { selectIngredientList } from "../../store/IngredientsStore/selectors/ingredientListSelector";
 
 const IngredientsList = () => {
-  const ingredientsList = useSelector(
-    (state) => state.ingredients.ingredientsList
-  );
+  const ingredientsList = useSelector(selectIngredientList);
 
   return (
     <ul className={styles.ingredientsList}>
