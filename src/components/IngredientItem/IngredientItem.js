@@ -10,13 +10,13 @@ const IngredientItem = (props) => {
   };
 
   return (
-    <li className={styles.ingredientItem} onClick={onClickHandler}>
+    <div className={styles.ingredientItem} onClick={onClickHandler}>
+      <div className={styles.ingredientItemName}>{props.item.name}</div>
       <div
         className={styles.ingredientItemImage}
         style={{ backgroundImage: `url(${props.item.image})` }}
       ></div>
-      <div className='ingredient-item-name'>{props.item.name}</div>
-    </li>
+    </div>
   );
 };
 

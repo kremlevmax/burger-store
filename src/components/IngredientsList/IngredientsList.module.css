@@ -1,9 +1,9 @@
 .ingredientsList {
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
-  justify-content: space-between;
+  gap: 12px;
+  justify-content: space-around;
   border: 3px solid #fafafa;
   border-radius: 3%;
-  padding: 0;
+  padding: 10px;
 }

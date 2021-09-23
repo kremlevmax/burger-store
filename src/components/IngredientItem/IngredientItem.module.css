@@ -1,6 +1,16 @@
-.ingredient-item-name {
-  font-family: "Montserrat", sans-serif;
+.ingredientItem {
+  width: 200px;
+  height: 200px;
+  border-radius: 5%;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
 }
+
 .ingredientItemImage {
   width: 200px;
   height: 150px;
@@ -9,18 +19,10 @@
   background-size: 200px 150px;
   border-radius: 10px;
 }
-.ingredientItem {
-  width: 200px;
-  height: 200px;
-  border-radius: 5%;
-  background-color: #fafafa;
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+.ingredientItemName {
+  margin-bottom: 10px;
 }
+
 .ingredientItem:hover {
   background-color: #e1e1e1;
 }

@@ -8,7 +8,7 @@ const IngredientsList = () => {
   const ingredientsList = useSelector(selectIngredientList);
 
   return (
-    <ul className={styles.ingredientsList}>
+    <div className={styles.ingredientsList}>
       {ingredientsList.map((item) => (
         <IngredientItem
           key={item.id}
@@ -22,7 +22,7 @@ const IngredientsList = () => {
           }}
         />
       ))}
-    </ul>
+    </div>
   );
 };
 

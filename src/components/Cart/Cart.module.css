@@ -1,17 +1,15 @@
 .cart {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
   flex-wrap: wrap;
-  list-style: none;
-  justify-content: space-between;
+  justify-content: space-around;
   border: 3px solid #fafafa;
   border-radius: 3%;
+  padding: 10px;
 }
-
-.ingredientItemImage {
-  width: 200px;
-  height: 150px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 200px 150px;
-  border-radius: 10px;
+.priceAndCalories {
+  margin-top: 10px;
+  border-top: 3px solid #fafafa;
+  padding: 10px;
 }

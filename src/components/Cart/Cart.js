@@ -25,10 +25,14 @@ const Cart = () => {
           }}
         />
       ))}
-      <div className={styles.totalPrice}>
-        Total: ${data.totalPrice.toFixed(2)}
+      <div className={styles.priceAndCalories}>
+        <div className={styles.totalPrice}>
+          Total: ${data.totalPrice.toFixed(2)}
+        </div>
+        <div className={styles.totalCalories}>
+          Calories: {data.totalCalories}
+        </div>
       </div>
-      <div className={styles.totalCalories}>Calories: {data.totalCalories}</div>
     </div>
   );
 };
