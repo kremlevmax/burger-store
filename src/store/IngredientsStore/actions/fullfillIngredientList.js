@@ -1,3 +1,10 @@
+import produce from "immer";
+
 export const fullfillIngredientList = (state, action) => {
-  state.ingredientsList = action.payload;
+  const ingredientList = produce(state, (draft) => {
+    draft.ingredientsList = action.payload;
+  });
+
+  return ingredientList;
+  //state.ingredientsList = action.payload;
 };
