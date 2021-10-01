@@ -8,8 +8,6 @@ const data = localStorage.getItem("cart")
 
 const initialCartState = {
   items: data.items || [],
-  totalPrice: data.totalPrice || 0,
-  totalCalories: data.totalCalories || 0,
 };
 
 const cartSlice = createSlice({

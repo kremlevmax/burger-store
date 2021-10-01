@@ -26,7 +26,7 @@ const CartItem = (props) => {
         <span className={styles.plusMinus} onClick={onMinusClickHandler}>
           -
         </span>
-        {props.item.quantity}
+        {props.item.count}
         <span className={styles.plusMinus} onClick={onPlusClickHandler}>
           +
         </span>
