@@ -23,7 +23,6 @@ export const totalPriceSelector = (state) => {
       const ingredient = state.ingredients.ingredientsList.find(
         (ingredient) => ingredient.id === item.id
       );
-
       totalPrice = totalPrice + ingredient["price"] * item.count;
     });
   }

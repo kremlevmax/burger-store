@@ -1,5 +1,7 @@
+import Modal from "./components/Modal/Modal";
+
 import styles from "./App.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchIngredientsList } from "./store/IngredientsStore/actions/fetchIngredientList";
 import { useDispatch } from "react-redux";
 
@@ -13,8 +15,10 @@ function App() {
     dispatch(fetchIngredientsList());
   }, [dispatch]);
 
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className='App'>
+      <Modal show={showModal} onClose={() => setShowModal(false)} />
       <div className={styles.header}></div>
       <div className={styles.mainArea}>
         <div className={styles.ingredientsList}>
@@ -24,6 +28,7 @@ function App() {
           <Cart />
         </div>
       </div>
+      <button onClick={() => setShowModal(true)}>Show Modal</button>
     </div>
   );
 }
