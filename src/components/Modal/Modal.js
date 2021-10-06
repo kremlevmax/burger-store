@@ -14,13 +14,15 @@ const Modal = (props) => {
       document.body.removeEventListener("keydown", closeOnEscapeButton);
     };
   });
+  console.log(props.show);
 
-  if (!props.show) {
-    return null;
-  }
+  const isModalShownClass = props.show
+    ? `${styles.modal} ${styles.show}`
+    : `${styles.modal}`;
+  console.log(isModalShownClass);
 
   return (
-    <div className={styles.modal} onClick={props.onClose}>
+    <div className={isModalShownClass} onClick={props.onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div>Image</div>
         <div>Add To Cart</div>

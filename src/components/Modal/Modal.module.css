@@ -8,9 +8,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
 }
+
 .modalContent {
   width: 500px;
   background-color: #fff;
   border-radius: 5px;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: visible;
 }
