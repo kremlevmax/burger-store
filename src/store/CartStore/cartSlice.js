@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addItemToCart } from "./actions/addItemToCart";
-import { deleteItemFromCart } from "./actions/deleteItemFromCart";
+import { addItemToCart } from "./reducers/addItemToCart";
+import { deleteItemFromCart } from "./reducers/deleteItemFromCart";
 
 const data = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart"))
   : [];
 
-const initialCartState = {
+export const initialCartState = {
   items: data.items || [],
 };
 

@@ -1,4 +1,4 @@
-import { ingredientsListActions } from "./IngrefientsListActions";
+import { ingredientsListActions } from "../actions/IngrefientsListActions";
 
 export const fetchIngredientsList = () => {
   return async (dispatch) => {

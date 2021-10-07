@@ -1,9 +1,11 @@
 import Modal from "./components/Modal/Modal";
 
 import styles from "./App.module.css";
-import { useEffect, useState } from "react";
-import { fetchIngredientsList } from "./store/IngredientsStore/actions/fetchIngredientList";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchIngredientsList } from "./store/IngredientsStore/reducers/fetchIngredientList";
+import { useDispatch, useSelector } from "react-redux";
+import { ingredientForModalSelector } from "./store/IngredientsStore/selectors/ingredientForModalSelector";
+import { ingredientsListActions } from "./store/IngredientsStore/actions/IngrefientsListActions";
 
 import IngredientsList from "./components/IngredientsList/IngredientsList";
 import Cart from "./components/Cart/Cart";
@@ -15,10 +17,17 @@ function App() {
     dispatch(fetchIngredientsList());
   }, [dispatch]);
 
-  const [showModal, setShowModal] = useState(false);
+  const { modalIsShown, ingredientToShow } = useSelector(
+    ingredientForModalSelector
+  );
+
   return (
     <div className='App'>
-      <Modal show={showModal} onClose={() => setShowModal(false)} />
+      <Modal
+        show={modalIsShown}
+        ingredient={ingredientToShow}
+        onClose={() => dispatch(ingredientsListActions.hideIngredientModal())}
+      />
       <div className={styles.header}></div>
       <div className={styles.mainArea}>
         <div className={styles.ingredientsList}>
@@ -28,7 +37,6 @@ function App() {
           <Cart />
         </div>
       </div>
-      <button onClick={() => setShowModal(true)}>Show Modal</button>
     </div>
   );
 }
