@@ -8,8 +8,6 @@ export const addItemToCart = (state, action) => {
       draft.items.push({
         id: newItemId,
         count: 1,
-        image: action.payload.image,
-        name: action.payload.name,
       });
     } else {
       draft.items.find((item) => item.id === newItemId).count += 1;

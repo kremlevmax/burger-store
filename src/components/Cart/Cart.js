@@ -1,24 +1,20 @@
 import CartItem from "../CartItem/CartItem";
 import { useSelector } from "react-redux";
-import { cartDataSelector } from "../../store/CartStore/selectors/cartDataSelector";
-import { totalCaloriesSelector } from "../../store/CartStore/selectors/cartDataSelector";
-import { totalPriceSelector } from "../../store/CartStore/selectors/cartDataSelector";
 import styles from "./Cart.module.css";
+import { getCartItemsData } from "../../store/CartStore/reducers/getCartItemsData";
+import { totalPriceAndCaloriesSelector } from "../../store/CartStore/selectors/totalPriceAndCaloriesSelector";
 
 const Cart = () => {
-  let data = useSelector(cartDataSelector);
-  let totalCalories = useSelector(totalCaloriesSelector);
-  let totalPrice = useSelector(totalPriceSelector);
+  let data = useSelector(getCartItemsData);
+  const isDataUndefined = data.some((item) => item === undefined);
+  let cartItems;
 
-  if (localStorage.getItem("cart")) {
-    data = JSON.parse(localStorage.getItem("cart"));
-  }
-
-  return (
-    <div className={styles.cart}>
-      {data.items.map((item) => (
+  if (!isDataUndefined) {
+    cartItems = data.map((item) => {
+      console.log(item["id"]);
+      return (
         <CartItem
-          key={item.id}
+          key={item.key}
           item={{
             id: item.id,
             image: item.image,
@@ -26,7 +22,16 @@ const Cart = () => {
             count: item.count,
           }}
         />
-      ))}
+      );
+    });
+  }
+  const { totalPrice, totalCalories } = useSelector(
+    totalPriceAndCaloriesSelector
+  );
+
+  return (
+    <div className={styles.cart}>
+      {cartItems}
       <div className={styles.priceAndCalories}>
         <div className={styles.totalPrice}>Total: {totalPrice.toFixed(2)}</div>
         <div className={styles.totalCalories}>Calories: {totalCalories}</div>
