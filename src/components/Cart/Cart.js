@@ -11,7 +11,6 @@ const Cart = () => {
 
   if (!isDataUndefined) {
     cartItems = data.map((item) => {
-      console.log(item["id"]);
       return (
         <CartItem
           key={item.key}
@@ -33,8 +32,12 @@ const Cart = () => {
     <div className={styles.cart}>
       {cartItems}
       <div className={styles.priceAndCalories}>
-        <div className={styles.totalPrice}>Total: {totalPrice.toFixed(2)}</div>
-        <div className={styles.totalCalories}>Calories: {totalCalories}</div>
+        <div className={styles.totalPrice}>
+          Total: {totalPrice.toFixed(2)} $
+        </div>
+        <div className={styles.totalCalories}>
+          Calories: {totalCalories} kcal
+        </div>
       </div>
     </div>
   );

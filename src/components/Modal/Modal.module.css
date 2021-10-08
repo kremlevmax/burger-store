@@ -10,11 +10,13 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .modalContent {
   width: 500px;
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   border-radius: 5px;
 }
@@ -22,4 +24,49 @@
 .show {
   opacity: 1;
   pointer-events: visible;
+}
+.ingredientImageAndText {
+  display: flex;
+  gap: 40px;
+  margin: 20px;
+}
+.ingredientImage {
+  width: 40%;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px 150px;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.ingredientTextDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ingredientTextDescription {
+  width: 60%;
+  height: 150px;
+}
+.addButtonArea {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 35px;
+}
+
+.ingredientName {
+  position: relative;
+  font-size: large;
+  font-weight: 600;
+}
+
+.closeXButton {
+  position: absolute;
+  right: -10px;
+  top: -15px;
+  font-weight: 800;
+  color: rgb(210, 210, 210);
 }

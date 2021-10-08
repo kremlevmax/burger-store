@@ -1,12 +1,12 @@
 import styles from "./IngredientItem.module.css";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../../store/CartStore/actions/cartActions";
+import { ingredientsListActions } from "../../store/IngredientsStore/actions/IngrefientsListActions";
 
 const IngredientItem = (props) => {
   const dispatch = useDispatch();
 
   const onClickHandler = () => {
-    dispatch(cartActions.addItemToCart(props.item));
+    dispatch(ingredientsListActions.showIngredientModal(props.item));
   };
 
   return (

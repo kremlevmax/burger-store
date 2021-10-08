@@ -5,7 +5,14 @@ import { hideIngredientModal } from "./reducers/hideIngredientModal";
 
 export const initialIngredientsState = {
   ingredientsList: [],
-  ingredientToShow: null,
+  ingredientToShow: {
+    calories: 0,
+    description: "",
+    id: "",
+    image: "",
+    name: "",
+    price: 0,
+  },
   modalIsShown: false,
 };
 

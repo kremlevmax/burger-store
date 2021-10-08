@@ -6,7 +6,7 @@ export const fullfillIngredientList = (
 ) => {
   return {
     ingredientsList: action.payload,
-    ingredientToShow: null,
+    ingredientToShow: state.ingredientToShow,
     modalIsShown: false,
   };
 };
