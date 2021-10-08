@@ -1,10 +1,22 @@
 import { useEffect } from "react";
 import styles from "./Modal.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/CartStore/actions/cartActions";
+import { cartDataSelector } from "../../store/CartStore/selectors/cartDataSelector";
 
 const Modal = (props) => {
   const dispatch = useDispatch();
+  const cartData = useSelector(cartDataSelector);
+
+  const ingredientCount =
+    props.show === true
+      ? cartData.items.find((item) => item.id === props.ingredient.id).count
+      : 0;
+
+  let buttonPhrase =
+    ingredientCount > 0
+      ? `You already have ${ingredientCount} pieces of this item in your cart`
+      : "Add to Cart";
 
   const closeOnEscapeButton = (event) => {
     if ((event.charCode || event.keyCode) === 27) {
@@ -51,7 +63,7 @@ const Modal = (props) => {
             className={styles.addButton}
             onClick={() => addIngredientToCart(props.ingredient)}
           >
-            Add to Cart
+            {buttonPhrase}
           </button>
         </div>
       </div>
