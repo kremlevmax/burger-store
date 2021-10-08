@@ -8,10 +8,11 @@ const Modal = (props) => {
   const dispatch = useDispatch();
   const cartData = useSelector(cartDataSelector);
 
-  const ingredientCount =
-    props.show === true
-      ? cartData.items.find((item) => item.id === props.ingredient.id).count
-      : 0;
+  const ingredientCount = cartData.items.find(
+    (item) => item.id === props.ingredient.id
+  )
+    ? cartData.items.find((item) => item.id === props.ingredient.id).count
+    : 0;
 
   let buttonPhrase =
     ingredientCount > 0
