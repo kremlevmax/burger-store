@@ -7,16 +7,7 @@ const data = localStorage.getItem("cart")
   : [];
 
 export const initialCartState = {
-  items: data.items || [
-    {
-      calories: 0,
-      description: "",
-      id: "",
-      image: "",
-      name: "",
-      price: 0,
-    },
-  ],
+  items: data.items || [],
 };
 
 const cartSlice = createSlice({

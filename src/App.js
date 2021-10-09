@@ -1,6 +1,7 @@
 import Modal from "./components/Modal/Modal";
-
 import styles from "./App.module.css";
+
+import { Switch, Route, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchIngredientsList } from "./store/IngredientsStore/reducers/fetchIngredientList";
 import { useDispatch, useSelector } from "react-redux";

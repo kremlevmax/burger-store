@@ -6,8 +6,12 @@ export const totalPriceAndCaloriesSelector = (state) => {
       const ingredient = state.ingredients.ingredientsList.find(
         (ingredient) => ingredient.id === item.id
       );
-      totalCalories = totalCalories + ingredient["calories"] * item.count;
-      totalPrice = totalPrice + ingredient["price"] * item.count;
+      totalCalories = ingredient
+        ? totalCalories + ingredient["calories"] * item.count
+        : 0;
+      totalPrice = ingredient
+        ? totalPrice + ingredient["price"] * item.count
+        : 0;
     });
   }
   return { totalPrice, totalCalories };
