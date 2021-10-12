@@ -2,26 +2,28 @@ import { ingredientsListActions } from "../actions/IngrefientsListActions";
 
 export const fetchIngredientsList = () => {
   return async (dispatch) => {
-    const fetchData = async () => {
-      const response = await fetch(
-        "https://burger-store-876ce-default-rtdb.firebaseio.com/ingredients.json"
-      );
+    setTimeout(async () => {
+      const fetchData = async () => {
+        const response = await fetch(
+          "https://burger-store-876ce-default-rtdb.firebaseio.com/ingredients.json"
+        );
 
-      if (!response.ok) {
-        throw new Error("Couldn't get data from the server");
+        if (!response.ok) {
+          throw new Error("Couldn't get data from the server");
+        }
+
+        const data = await response.json();
+        return data;
+      };
+
+      try {
+        const ingredientsListData = await fetchData();
+        dispatch(
+          ingredientsListActions.fullfillIngredientList(ingredientsListData)
+        );
+      } catch (error) {
+        console.log(error);
       }
-
-      const data = await response.json();
-      return data;
-    };
-
-    try {
-      const ingredientsListData = await fetchData();
-      dispatch(
-        ingredientsListActions.fullfillIngredientList(ingredientsListData)
-      );
-    } catch (error) {
-      console.log(error);
-    }
+    }, 5000);
   };
 };

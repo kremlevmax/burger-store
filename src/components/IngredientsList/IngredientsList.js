@@ -2,14 +2,18 @@ import { useSelector } from "react-redux";
 
 import styles from "./IngredientsList.module.css";
 import IngredientItem from "../IngredientItem/IngredientItem";
+import SkeletonElement from "../Skeletons/SkeletonElement";
 import { selectIngredientList } from "../../store/IngredientsStore/selectors/ingredientListSelector";
 
 const IngredientsList = () => {
   const ingredientsList = useSelector(selectIngredientList);
+  console.log(ingredientsList);
 
-  return (
-    <div className={styles.ingredientsList}>
-      {ingredientsList.map((item) => (
+  const IngredientListDiv =
+    ingredientsList === null ? (
+      <SkeletonElement />
+    ) : (
+      ingredientsList.map((item) => (
         <IngredientItem
           key={item.id}
           item={{
@@ -21,9 +25,10 @@ const IngredientsList = () => {
             price: item.price,
           }}
         />
-      ))}
-    </div>
-  );
+      ))
+    );
+
+  return <div className={styles.ingredientsList}>{IngredientListDiv}</div>;
 };
 
 export default IngredientsList;

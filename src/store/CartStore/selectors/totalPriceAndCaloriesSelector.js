@@ -13,6 +13,9 @@ export const totalPriceAndCaloriesSelector = (state) => {
         ? totalPrice + ingredient["price"] * item.count
         : 0;
     });
+  } else {
+    totalPrice = null;
+    totalCalories = null;
   }
   return { totalPrice, totalCalories };
 };
