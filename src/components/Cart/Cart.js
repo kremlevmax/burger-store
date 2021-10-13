@@ -25,7 +25,7 @@ const Cart = () => {
       );
     });
   } else {
-    cartItems = <SkeletonElement />;
+    cartItems = <SkeletonElement type='cartItem' />;
   }
   const { totalPrice, totalCalories } = useSelector(
     totalPriceAndCaloriesSelector
@@ -40,7 +40,9 @@ const Cart = () => {
 
   const totalPriceDiv =
     totalPrice === null ? (
-      <SkeletonElement />
+      <div>
+        <SkeletonElement type='caloriesAndPrice' />
+      </div>
     ) : (
       <div> Total: {totalPrice.toFixed(2)} $</div>
     );
@@ -49,8 +51,8 @@ const Cart = () => {
     <div className={styles.cart}>
       {cartItems}
       <div className={styles.priceAndCalories}>
-        <div className={styles.totalPrice}>{totalPriceDiv}</div>
-        <div className={styles.totalCalories}>{totalCaloriesDiv}</div>
+        <div className={styles.totalPriceCaloriesDiv}>{totalPriceDiv}</div>
+        <div className={styles.totalPriceCaloriesDiv}>{totalCaloriesDiv}</div>
       </div>
     </div>
   );

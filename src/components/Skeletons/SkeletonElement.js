@@ -1,4 +1,8 @@
-const SkeletonElement = () => {
-  return <div> Skeleton</div>;
+import "./SkeletonElement.css";
+import Shimmer from "./Shimmer";
+
+const SkeletonElement = ({ type }) => {
+  const classes = `skeleton ${type}`;
+  return <div className={classes}></div>;
 };
 export default SkeletonElement;

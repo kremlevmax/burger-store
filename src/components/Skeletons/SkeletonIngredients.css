@@ -1,0 +1,10 @@
+.skeletonIngredientsWrapper {
+  position: relative;
+  overflow: hidden;
+}
+.skeletonIngredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-around;
+}

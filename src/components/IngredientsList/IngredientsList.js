@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import styles from "./IngredientsList.module.css";
 import IngredientItem from "../IngredientItem/IngredientItem";
-import SkeletonElement from "../Skeletons/SkeletonElement";
+import SkeletonIngredients from "../Skeletons/SkeletonIngredients";
 import { selectIngredientList } from "../../store/IngredientsStore/selectors/ingredientListSelector";
 
 const IngredientsList = () => {
@@ -11,7 +11,7 @@ const IngredientsList = () => {
 
   const IngredientListDiv =
     ingredientsList === null ? (
-      <SkeletonElement />
+      <SkeletonIngredients />
     ) : (
       ingredientsList.map((item) => (
         <IngredientItem

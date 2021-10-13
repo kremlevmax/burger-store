@@ -13,6 +13,7 @@
   flex-wrap: nowrap;
   background-color: #fafafa;
   justify-content: space-between;
+  align-items: center;
 }
 
 .cartItemDescriptionBlock {
