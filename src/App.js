@@ -1,7 +1,6 @@
 import Modal from "./components/Modal/Modal";
 import styles from "./App.module.css";
 
-import { Switch, Route, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchIngredientsList } from "./store/IngredientsStore/reducers/fetchIngredientList";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,18 +17,20 @@ function App() {
     dispatch(fetchIngredientsList());
   }, [dispatch]);
 
-  const { modalIsShown, ingredientToShow } = useSelector(
-    ingredientForModalSelector
+  const ingredientForModal = useSelector(ingredientForModalSelector);
+  const isModalShown = ingredientForModal.ingredientToShow !== undefined;
+  const modalElement = isModalShown ? (
+    <Modal
+      show={isModalShown}
+      ingredient={ingredientForModal.ingredientToShow}
+      onClose={() => dispatch(ingredientsListActions.hideIngredientModal())}
+    />
+  ) : (
+    <></>
   );
-
   return (
     <div className='App'>
-      <Modal
-        show={modalIsShown}
-        ingredient={ingredientToShow}
-        onClose={() => dispatch(ingredientsListActions.hideIngredientModal())}
-      />
-      <div className={styles.header}></div>
+      {modalElement})<div className={styles.header}></div>
       <div className={styles.mainArea}>
         <div className={styles.ingredientsList}>
           <IngredientsList />

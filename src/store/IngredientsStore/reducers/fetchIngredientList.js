@@ -24,6 +24,6 @@ export const fetchIngredientsList = () => {
       } catch (error) {
         console.log(error);
       }
-    }, 100000);
+    }, 1000);
   };
 };

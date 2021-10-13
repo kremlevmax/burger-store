@@ -1,6 +1,7 @@
 export const ingredientForModalSelector = (state) => {
   return {
-    modalIsShown: state.ingredients.modalIsShown,
-    ingredientToShow: state.ingredients.ingredientToShow,
+    ingredientToShow: state.ingredients.ingredientsList.find(
+      (item) => item.id === state.ingredients.ingredientForModalId
+    ),
   };
 };

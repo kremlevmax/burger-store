@@ -7,7 +7,6 @@ import { selectIngredientList } from "../../store/IngredientsStore/selectors/ing
 
 const IngredientsList = () => {
   const ingredientsList = useSelector(selectIngredientList);
-  console.log(ingredientsList);
 
   const IngredientListDiv =
     ingredientsList === null ? (

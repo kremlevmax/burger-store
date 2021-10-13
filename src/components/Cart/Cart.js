@@ -14,7 +14,7 @@ const Cart = () => {
     cartItems = data.map((item) => {
       return (
         <CartItem
-          key={item.key}
+          key={item.id}
           item={{
             id: item.id,
             image: item.image,
