@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import ReactDOM from "react-dom";
 import styles from "./Modal.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/CartStore/actions/cartActions";
@@ -39,7 +40,7 @@ const Modal = (props) => {
   const isModalShownClass = props.show
     ? `${styles.modal} ${styles.show}`
     : `${styles.modal}`;
-  return (
+  const modal = (
     <div className={isModalShownClass} onClick={props.onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.ingredientImageAndText}>
@@ -70,6 +71,7 @@ const Modal = (props) => {
       </div>
     </div>
   );
+  return ReactDOM.createPortal(modal, document.body);
 };
 
 export default Modal;
