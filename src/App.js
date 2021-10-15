@@ -10,20 +10,30 @@ import { ingredientsListActions } from "./store/IngredientsStore/actions/Ingrefi
 import IngredientsList from "./components/IngredientsList/IngredientsList";
 import Cart from "./components/Cart/Cart";
 import IngredientModal from "./components/IngredientModal/IngredientModal";
+import { useLocation } from "react-router-dom";
+import { IngredientFromAddressLine } from "./store/IngredientsStore/selectors/IngredientFromAddressLine";
 
 function App() {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const ingredientId = params.get("ingredient");
+  const ingredientForModalFromAddressItem = useSelector(
+    IngredientFromAddressLine(ingredientId)
+  );
+  console.log(ingredientForModalFromAddressItem);
 
   useEffect(() => {
     dispatch(fetchIngredientsList());
   }, [dispatch]);
 
   const ingredientForModal = useSelector(ingredientForModalSelector);
-  const isModalShown = ingredientForModal.ingredientToShow !== undefined;
+  const isModalShown =
+    ingredientForModalFromAddressItem.ingredientToShow !== undefined;
   const modalElement = isModalShown ? (
     <Modal show={isModalShown}>
       <IngredientModal
-        ingredient={ingredientForModal.ingredientToShow}
+        ingredient={ingredientForModalFromAddressItem.ingredientToShow}
         onClose={() => dispatch(ingredientsListActions.hideIngredientModal())}
       />
     </Modal>
