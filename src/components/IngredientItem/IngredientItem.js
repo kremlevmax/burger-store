@@ -1,10 +1,7 @@
 import styles from "./IngredientItem.module.css";
-import { useDispatch } from "react-redux";
-import { ingredientsListActions } from "../../store/IngredientsStore/actions/IngrefientsListActions";
 import { useHistory } from "react-router-dom";
 
 const IngredientItem = (props) => {
-  const dispatch = useDispatch();
   const history = useHistory();
 
   const onClickHandler = () => {
