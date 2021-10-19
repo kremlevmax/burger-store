@@ -31,7 +31,7 @@ function App() {
   const isModalShown =
     ingredientForModalFromAddressItem.ingredientToShow !== undefined;
   const modalElement = isModalShown ? (
-    <Modal show={isModalShown}>
+    <Modal show={isModalShown} onClose={() => history.push("/")}>
       <IngredientModal
         ingredient={ingredientForModalFromAddressItem.ingredientToShow}
         onClose={() => history.push("/")}
