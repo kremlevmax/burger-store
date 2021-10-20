@@ -7,7 +7,6 @@ import SkeletonElement from "../Skeletons/SkeletonElement";
 
 const Cart = () => {
   let data = useSelector(getCartItemsData);
-  // const isDataUndefined = data.some((item) => item === undefined);
   let cartItems;
 
   if (data != null) {

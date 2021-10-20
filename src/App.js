@@ -4,7 +4,6 @@ import styles from "./App.module.css";
 import { useEffect } from "react";
 import { fetchIngredientsList } from "./store/IngredientsStore/reducers/fetchIngredientList";
 import { useDispatch, useSelector } from "react-redux";
-import { ingredientsListActions } from "./store/IngredientsStore/actions/IngrefientsListActions";
 
 import IngredientsList from "./components/IngredientsList/IngredientsList";
 import Cart from "./components/Cart/Cart";
@@ -24,12 +23,13 @@ function App() {
     IngredientFromAddressLine(ingredientId)
   );
 
+  const isModalShown =
+    ingredientForModalFromAddressItem.ingredientToShow !== undefined;
+
   useEffect(() => {
     dispatch(fetchIngredientsList());
   }, [dispatch]);
 
-  const isModalShown =
-    ingredientForModalFromAddressItem.ingredientToShow !== undefined;
   const modalElement = isModalShown ? (
     <Modal show={isModalShown} onClose={() => history.push("/")}>
       <IngredientModal

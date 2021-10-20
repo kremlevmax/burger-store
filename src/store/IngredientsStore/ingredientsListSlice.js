@@ -1,11 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fullfillIngredientList } from "./reducers/fullfillIngredientList";
-import { showIngredientModal } from "./reducers/showIngredientModal";
-import { hideIngredientModal } from "./reducers/hideIngredientModal";
 
 export const initialIngredientsState = {
   ingredientsList: [],
-  ingredientForModalId: null,
 };
 
 const ingredientsSlice = createSlice({
@@ -13,8 +10,6 @@ const ingredientsSlice = createSlice({
   initialState: initialIngredientsState,
   reducers: {
     fullfillIngredientList,
-    showIngredientModal,
-    hideIngredientModal,
   },
 });
 
