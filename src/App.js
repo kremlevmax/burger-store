@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 
 import { useEffect } from "react";
 import { fetchIngredientsList } from "./store/IngredientsStore/reducers/fetchIngredientList";
+import { signInUser } from "./store/AuthorizationStore/reducers/signInUser";
 import { useDispatch, useSelector } from "react-redux";
 
 import IngredientsList from "./components/IngredientsList/IngredientsList";
@@ -28,6 +29,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchIngredientsList());
+    dispatch(signInUser("TESTMAIL@gmail.com", "a123sedQ232"));
   }, [dispatch]);
 
   const modalElement = isModalShown ? (
