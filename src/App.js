@@ -11,6 +11,7 @@ import Cart from "./components/Cart/Cart";
 import IngredientModal from "./components/IngredientModal/IngredientModal";
 import { useHistory, useLocation } from "react-router-dom";
 import { IngredientFromAddressLine } from "./store/IngredientsStore/selectors/IngredientFromAddressLine";
+import SignUp from "./components/SignUp/SignUp";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,7 +30,6 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchIngredientsList());
-    dispatch(signInUser("TESTMAIL@gmail.com", "a123sedQ232"));
   }, [dispatch]);
 
   const modalElement = isModalShown ? (
@@ -52,6 +52,9 @@ function App() {
         </div>
         <div className={styles.cart}>
           <Cart />
+        </div>
+        <div>
+          <SignUp onSubmit={() => dispatch(signInUser())} />
         </div>
       </div>
     </div>
