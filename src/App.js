@@ -3,8 +3,8 @@ import styles from "./App.module.css";
 
 import { useEffect } from "react";
 import { fetchIngredientsList } from "./store/IngredientsStore/reducers/fetchIngredientList";
-import { signInUser } from "./store/AuthorizationStore/reducers/signInUser";
 import { useDispatch, useSelector } from "react-redux";
+import { AuthContextProvider } from "./contexts/AuthContextProvider";
 
 import IngredientsList from "./components/IngredientsList/IngredientsList";
 import Cart from "./components/Cart/Cart";
@@ -43,21 +43,23 @@ function App() {
     <></>
   );
   return (
-    <div className='App'>
-      {modalElement}
-      <div className={styles.header}></div>
-      <div className={styles.mainArea}>
-        <div className={styles.ingredientsList}>
-          <IngredientsList />
-        </div>
-        <div className={styles.cart}>
-          <Cart />
-        </div>
-        <div>
-          <SignUp onSubmit={() => dispatch(signInUser())} />
+    <AuthContextProvider>
+      <div className='App'>
+        {modalElement}
+        <div className={styles.header}></div>
+        <div className={styles.mainArea}>
+          <div className={styles.ingredientsList}>
+            <IngredientsList />
+          </div>
+          <div className={styles.cart}>
+            <Cart />
+          </div>
+          <div>
+            <SignUp />
+          </div>
         </div>
       </div>
-    </div>
+    </AuthContextProvider>
   );
 }
 

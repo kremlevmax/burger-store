@@ -1,26 +1,33 @@
 import { useState } from "react";
-import { useEffect } from "react";
 import { useRef } from "react";
-import { auth } from "../../firebase";
-
+import { useAuth } from "../../contexts/AuthContextProvider";
 const SignUp = (props) => {
   const email = useRef();
   const password = useRef();
+  const passwordConfirmation = useRef();
 
-  const [currentUser, setCurrentUser] = useState();
+  const { signUp, currentUser } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
-    auth.createUserWithEmailAndPassword(
-      email.current.value,
-      password.current.value
-    );
+    if (password.current.value !== passwordConfirmation.current.value) {
+      return setError("Passwords do not match");
+    }
+
+    try {
+      setIsLoading(true);
+      setError();
+      await signUp(email.current.value, password.current.value);
+    } catch {}
+    setIsLoading(false);
   };
 
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => setCurrentUser(user));
-  }, []);
-
+  if (currentUser) {
+    console.log(currentUser.email);
+    console.log(error);
+  }
   return (
     <>
       <form onSubmit={onSubmitHandler}>
@@ -28,10 +35,21 @@ const SignUp = (props) => {
         <br />
         <input type='text' id='email' name='email' ref={email} />
         <br />
-        <label htmlFor='password'>Last name:</label>
+        <label htmlFor='password'>Password:</label>
         <br />
         <input type='password' id='password' name='password' ref={password} />
-        <button type='submit'>Sign Up</button>
+        <br />
+        <label htmlFor='password'>Confirm Password:</label>
+        <br />
+        <input
+          type='password'
+          id='passwordConfirmation'
+          name='passwordConfirmation'
+          ref={passwordConfirmation}
+        />
+        <button type='submit' disabled={isLoading}>
+          Sign Up
+        </button>
       </form>
     </>
   );
