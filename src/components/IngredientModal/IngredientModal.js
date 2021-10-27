@@ -30,12 +30,7 @@ const IngredientModal = (props) => {
           style={{ backgroundImage: `url(${props.ingredient.image})` }}
         ></div>
         <div className={styles.ingredientTextDescription}>
-          <div className={styles.ingredientName}>
-            {props.ingredient.name}
-            <div onClick={props.onClose} className={styles.closeXButton}>
-              X
-            </div>
-          </div>
+          <div className={styles.ingredientName}>{props.ingredient.name}</div>
           <div>{props.ingredient.description}</div>
           <div>Calories: {props.ingredient.calories}</div>
           <div>Price: {props.ingredient.price}</div>

@@ -20,14 +20,11 @@ const SignUp = (props) => {
       setIsLoading(true);
       setError();
       await signUp(email.current.value, password.current.value);
-    } catch {}
+    } catch {
+      setError("Failed to create account");
+    }
     setIsLoading(false);
   };
-
-  if (currentUser) {
-    console.log(currentUser.email);
-    console.log(error);
-  }
   return (
     <>
       <form onSubmit={onSubmitHandler}>

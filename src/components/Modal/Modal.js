@@ -22,6 +22,9 @@ const Modal = (props) => {
   const modal = (
     <div className={isModalShownClass} onClick={props.onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+        <div onClick={props.onClose} className={styles.closeXButton}>
+          X
+        </div>
         {props.children}
       </div>
     </div>
