@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useRef } from "react";
 import { useAuth } from "../../contexts/AuthContextProvider";
+import styles from "./SignUp.module.css";
+
 const SignUp = (props) => {
   const email = useRef();
   const password = useRef();
@@ -26,29 +28,43 @@ const SignUp = (props) => {
     setIsLoading(false);
   };
   return (
-    <>
-      <form onSubmit={onSubmitHandler}>
-        <label htmlFor='email'>Email:</label>
-        <br />
-        <input type='text' id='email' name='email' ref={email} />
-        <br />
-        <label htmlFor='password'>Password:</label>
-        <br />
-        <input type='password' id='password' name='password' ref={password} />
-        <br />
-        <label htmlFor='password'>Confirm Password:</label>
-        <br />
+    <div className={styles.main}>
+      <form onSubmit={onSubmitHandler} className={styles.form}>
+        <label htmlFor='email' className={styles.label}>
+          Email:
+        </label>
+        <input
+          type='text'
+          id='email'
+          name='email'
+          ref={email}
+          className={styles.input}
+        />
+        <label htmlFor='password' className={styles.label}>
+          Password:
+        </label>
+        <input
+          type='password'
+          id='password'
+          name='password'
+          ref={password}
+          className={styles.input}
+        />
+        <label htmlFor='password' className={styles.label}>
+          Confirm Password:
+        </label>
         <input
           type='password'
           id='passwordConfirmation'
           name='passwordConfirmation'
           ref={passwordConfirmation}
+          className={styles.input}
         />
-        <button type='submit' disabled={isLoading}>
+        <button type='submit' disabled={isLoading} className={styles.button}>
           Sign Up
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

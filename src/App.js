@@ -19,7 +19,6 @@ function App() {
   const history = useHistory();
 
   const params = new URLSearchParams(location.search);
-  console.log(location.pathname);
 
   const ingredientId = params.get("ingredient");
 
@@ -61,9 +60,6 @@ function App() {
           </div>
           <div className={styles.cart}>
             <Cart />
-          </div>
-          <div>
-            <SignUp />
           </div>
         </div>
       </div>
