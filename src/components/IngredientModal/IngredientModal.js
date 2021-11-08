@@ -24,7 +24,7 @@ const IngredientModal = (props) => {
   };
 
   return (
-    <div>
+    <div className={styles.ingredientDataContainer}>
       <div className={styles.ingredientImageAndText}>
         <div
           className={styles.ingredientImage}
@@ -32,9 +32,11 @@ const IngredientModal = (props) => {
         ></div>
         <div className={styles.ingredientTextDescription}>
           <div className={styles.ingredientName}>{props.ingredient.name}</div>
-          <div>{props.ingredient.description}</div>
-          <div>Calories: {props.ingredient.calories}</div>
-          <div>Price: {props.ingredient.price}</div>
+          <div className={styles.ingredientProperties}>
+            <div>{props.ingredient.description}</div>
+            <div>Calories: {props.ingredient.calories} kcal</div>
+            <div>Price: {props.ingredient.price}$</div>
+          </div>
         </div>
       </div>
       <div className={styles.addButtonArea}>

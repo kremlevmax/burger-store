@@ -1,15 +1,17 @@
 .button {
-  padding: 8px;
-  background-color: #726f6f;
-  color: white;
-  border-width: 1px;
+  padding: 12px;
+  background-color: #2a6041;
+  color: #fafafa;
+  border-width: 0;
   border-radius: 2px;
-  border-color: #e1e1e1;
   transition: all 0.2s;
   margin-bottom: 2vh;
+  cursor: pointer;
 }
 
 .button:hover {
-  background-color: white;
-  color: black;
+  background-color: #fafafa;
+  color: #2a6041;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }

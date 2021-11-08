@@ -14,8 +14,9 @@
 }
 
 .modalContent {
+  position: relative;
   width: 500px;
-  height: 50vh;
+  height: 250px;
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -23,9 +24,10 @@
 }
 
 .closeXButton {
-  display: flex;
-  justify-content: flex-end;
-  padding: 4px;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  cursor: pointer;
 }
 
 .show {

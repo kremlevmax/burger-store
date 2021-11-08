@@ -9,6 +9,8 @@
   justify-content: center;
   cursor: pointer;
   padding: 10px;
+  gap: 8px;
+  cursor: pointer;
 }
 
 .ingredientItemImage {
@@ -21,6 +23,8 @@
 }
 .ingredientItemName {
   margin-bottom: 10px;
+  border-bottom: #fafafa;
+  border-width: 3px;
 }
 
 .ingredientItem:hover {

@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: "PT Sans", sans-serif;
+  letter-spacing: 0.05em;
 }
 
 .header {
@@ -39,5 +40,5 @@
 
 .header {
   height: 60px;
-  background-color: #fafafa;
+  background-color: #effbf4;
 }
