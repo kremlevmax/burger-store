@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/CartStore/actions/cartActions";
 import { cartDataSelector } from "../../store/CartStore/selectors/cartDataSelector";
 import styles from "./IngredientModal.module.css";
+import Button from "../UI/Button/Button";
 
 const IngredientModal = (props) => {
   const dispatch = useDispatch();
@@ -37,12 +38,10 @@ const IngredientModal = (props) => {
         </div>
       </div>
       <div className={styles.addButtonArea}>
-        <button
-          className={styles.addButton}
+        <Button
           onClick={() => addIngredientToCart(props.ingredient)}
-        >
-          {buttonPhrase}
-        </button>
+          label={buttonPhrase}
+        />
       </div>
     </div>
   );
