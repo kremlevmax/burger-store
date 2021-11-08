@@ -52,7 +52,12 @@ function App() {
       <div className='App'>
         {modalElement}
         <div className={styles.header} onClick={() => history.push("/login")}>
-          Sign up
+          <div className={styles.logoContainer}>
+            iBurger
+            <span className={styles.burgerPic}>
+              <i className='fas fa-hamburger'></i>
+            </span>
+          </div>
         </div>
         <div className={styles.mainArea}>
           <div className={styles.ingredientsList}>
