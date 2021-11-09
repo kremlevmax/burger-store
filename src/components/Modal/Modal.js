@@ -19,9 +19,13 @@ const Modal = (props) => {
   const isModalShownClass = props.show
     ? `${styles.modal} ${styles.show}`
     : `${styles.modal}`;
+  const modalClasses =
+    props.type === "ingredient"
+      ? `${styles.modalContent} ${styles.modalIngredient}`
+      : `${styles.modalContent} ${styles.modalLogin}`;
   const modal = (
     <div className={isModalShownClass} onClick={props.onClose}>
-      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+      <div className={modalClasses} onClick={(e) => e.stopPropagation()}>
         <div onClick={props.onClose} className={styles.closeXButton}>
           <i className='fas fa-times'></i>
         </div>

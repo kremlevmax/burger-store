@@ -34,8 +34,15 @@ function App() {
     dispatch(fetchIngredientsList());
   }, [dispatch]);
 
+  const modalType =
+    location.pathname === "/login" ? "modalLogin" : "ingredient";
+
   const modalElement = isModalShown ? (
-    <Modal show={isModalShown} onClose={() => history.push("/")}>
+    <Modal
+      type={modalType}
+      show={isModalShown}
+      onClose={() => history.push("/")}
+    >
       {location.pathname === "/login" ? (
         <SignUp />
       ) : (
