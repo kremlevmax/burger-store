@@ -61,7 +61,7 @@ const SignUp = (props) => {
           ref={passwordConfirmation}
           className={styles.input}
         />
-        <Button label='Sign up' />
+        <Button type='submit' label='Sign up' />
         {/* <button type='submit' disabled={isLoading} className={styles.button}>
           Sign Up
         </button> */}

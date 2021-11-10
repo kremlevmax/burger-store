@@ -20,6 +20,10 @@
 .input {
   margin-bottom: 10px;
   max-width: 200px;
+  padding: 4px;
+  border-width: 2px;
+  border-color: #2a6041;
+  border-radius: 4px;
 }
 
 .button {
