@@ -6,23 +6,10 @@
   letter-spacing: 0.05em;
 }
 
-.header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.logoContainer {
-  font-size: 1.8rem;
-  margin-left: 4vw;
-}
-.burgerPic {
-  margin-left: 1vw;
-}
-
 .mainArea {
   display: flex;
   justify-content: space-between;
+  margin: 0 4vh;
 }
 
 .ingredientsList {
@@ -36,9 +23,4 @@
 .cart {
   flex-basis: 35%;
   margin-top: 10px;
-}
-
-.header {
-  height: 60px;
-  background-color: #effbf4;
 }

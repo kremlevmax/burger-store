@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: #effbf4;
+}
+
+.logoContainer {
+  font-size: 1.8rem;
+  margin-left: 4vw;
+  color: #2a6041;
+}
+.burgerPic {
+  margin-left: 1vw;
+}
+
+.buttonContainer {
+  display: flex;
+  align-content: center;
+  margin-right: 6vh;
+}

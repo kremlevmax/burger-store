@@ -12,6 +12,7 @@ import IngredientModal from "./components/IngredientModal/IngredientModal";
 import { useHistory, useLocation } from "react-router-dom";
 import { IngredientFromAddressLine } from "./store/IngredientsStore/selectors/IngredientFromAddressLine";
 import SignUp from "./components/SignUp/SignUp";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const dispatch = useDispatch();
@@ -58,14 +59,7 @@ function App() {
     <AuthContextProvider>
       <div className='App'>
         {modalElement}
-        <div className={styles.header} onClick={() => history.push("/login")}>
-          <div className={styles.logoContainer}>
-            iBurger
-            <span className={styles.burgerPic}>
-              <i className='fas fa-hamburger'></i>
-            </span>
-          </div>
-        </div>
+        <Navbar />
         <div className={styles.mainArea}>
           <div className={styles.ingredientsList}>
             <IngredientsList />
