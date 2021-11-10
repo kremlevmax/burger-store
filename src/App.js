@@ -13,6 +13,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { IngredientFromAddressLine } from "./store/IngredientsStore/selectors/IngredientFromAddressLine";
 import SignUp from "./components/SignUp/SignUp";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -68,6 +69,7 @@ function App() {
             <Cart />
           </div>
         </div>
+        <Footer />
       </div>
     </AuthContextProvider>
   );
