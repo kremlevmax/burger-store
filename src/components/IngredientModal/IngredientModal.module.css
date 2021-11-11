@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   padding: 4px;
-  gap: 30px;
 }
 
 .ingredientImageAndText {
@@ -25,12 +24,10 @@
   flex-direction: column;
   gap: 7px;
   align-items: flex-start;
+  font-size: 25px;
+  width: 60%;
 }
 
-.ingredientTextDescription {
-  width: 60%;
-  height: 150px;
-}
 .addButtonArea {
   display: flex;
   justify-content: center;

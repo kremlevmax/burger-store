@@ -22,9 +22,10 @@
   border-radius: 10px;
 }
 .ingredientItemName {
-  margin-bottom: 10px;
+  display: flex;
   border-bottom: #fafafa;
   border-width: 3px;
+  font-size: x-large;
 }
 
 .ingredientItem:hover {
