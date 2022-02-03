@@ -20,13 +20,10 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 25px;
 }
 .cartItemQuantityBlock {
   font-weight: 600;
-  font-size: 25px;
 }
 .plusMinus {
   padding: 5px;
-  cursor: pointer;
 }

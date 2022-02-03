@@ -12,8 +12,6 @@ import IngredientModal from "./components/IngredientModal/IngredientModal";
 import { useHistory, useLocation } from "react-router-dom";
 import { IngredientFromAddressLine } from "./store/IngredientsStore/selectors/IngredientFromAddressLine";
 import SignUp from "./components/SignUp/SignUp";
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,15 +34,8 @@ function App() {
     dispatch(fetchIngredientsList());
   }, [dispatch]);
 
-  const modalType =
-    location.pathname === "/login" ? "modalLogin" : "ingredient";
-
   const modalElement = isModalShown ? (
-    <Modal
-      type={modalType}
-      show={isModalShown}
-      onClose={() => history.push("/")}
-    >
+    <Modal show={isModalShown} onClose={() => history.push("/")}>
       {location.pathname === "/login" ? (
         <SignUp />
       ) : (
@@ -60,7 +51,14 @@ function App() {
     <AuthContextProvider>
       <div className='App'>
         {modalElement}
-        <Navbar />
+        <div className={styles.header} onClick={() => history.push("/login")}>
+          <div className={styles.logoContainer}>
+            iBurger
+            <span className={styles.burgerPic}>
+              <i className='fas fa-hamburger'></i>
+            </span>
+          </div>
+        </div>
         <div className={styles.mainArea}>
           <div className={styles.ingredientsList}>
             <IngredientsList />
@@ -69,7 +67,6 @@ function App() {
             <Cart />
           </div>
         </div>
-        <Footer />
       </div>
     </AuthContextProvider>
   );

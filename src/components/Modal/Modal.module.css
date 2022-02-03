@@ -14,28 +14,17 @@
 }
 
 .modalContent {
-  position: relative;
+  width: 500px;
   display: flex;
   flex-direction: column;
   background-color: #fff;
   border-radius: 5px;
 }
 
-.modalIngredient {
-  width: 500px;
-  height: 260px;
-}
-
-.modalLogin {
-  width: 230px;
-  height: 300px;
-}
-
 .closeXButton {
-  position: absolute;
-  top: 4px;
-  right: 8px;
-  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px;
 }
 
 .show {

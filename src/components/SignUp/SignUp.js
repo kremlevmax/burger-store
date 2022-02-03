@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useRef } from "react";
 import { useAuth } from "../../contexts/AuthContextProvider";
-import Button from "../UI/Button/Button";
 import styles from "./SignUp.module.css";
 
 const SignUp = (props) => {
@@ -61,10 +60,9 @@ const SignUp = (props) => {
           ref={passwordConfirmation}
           className={styles.input}
         />
-        <Button type='submit' label='Sign up' />
-        {/* <button type='submit' disabled={isLoading} className={styles.button}>
+        <button type='submit' disabled={isLoading} className={styles.button}>
           Sign Up
-        </button> */}
+        </button>
       </form>
     </div>
   );
