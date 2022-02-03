@@ -1,9 +1,0 @@
-.ingredientsList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: space-around;
-  border: 3px solid #fafafa;
-  border-radius: 3%;
-  padding: 10px;
-}
